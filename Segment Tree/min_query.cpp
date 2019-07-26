@@ -26,7 +26,11 @@ void build_tree(int node, int a, int b) {
 	tree[node] = min(tree[node*2], tree[node*2+1]); 
 }
 
-
+void print(){
+	int n = sizeof(tree)/sizeof(int);
+	for (int i=0; i<n; i++) cout<<tree[i]<<" ";
+	cout<<endl;
+}
 // void update_tree(int node, int a, int b, int i, int j, int value) {
     
 // 	if(a > b || a > j || b < i) 
@@ -66,6 +70,7 @@ int main() {
 	build_tree(1, 0, N-1);
     // int ql, qh, val; cin>>ql>>qh>>val;
 	// update_tree(1, 0, N-1, ql, qh, val); 
+	print();
     int qql, qqh; cin>>qql>>qqh;
 	cout << query_tree(1, 0, N-1, qql, qqh) << endl; 
 }
