@@ -24,7 +24,9 @@ void print(){
     cout<<endl;
 }
 
-void
+void lazy_style(){
+    
+}
 int main(){
     int n; cin>>n;
     int a[n];
