@@ -28,9 +28,10 @@ void dijkstra(vector< pair<int, int> > adj[], int from, int to){
     }
 }
 
+// Debugging
 void print(){
     int n = sizeof(dist) / sizeof(int);
-    for (int i=0; i<n; i++) cout<<dist[i]<<" ";
+    for (int i=0; i<7; i++) cout<<dist[i]<<" ";
     cout<<endl;
 }
 
@@ -43,7 +44,7 @@ int main()
         int nn, d, w;
         map<string, int> mp;
         vector< pair<int, int> > adj[10000];
-        for (int i=0; i<nc; i++){
+        for (int i=1; i<=nc; i++){
             cin>>city;
             mp[city] = i;
             cin>>nn;
@@ -57,9 +58,11 @@ int main()
         while(no--){
             cin>>from>>to;
             int from_i = mp[from];
+           // cout<<"from "<<from_i<<endl;
             int to_i = mp[to];
+           // cout<<"to "<<to_i<<endl;
             dijkstra(adj, from_i, to_i);
-           // print();
+            //print();
            cout<<dist[to_i]<<endl;
         }
         
