@@ -1,5 +1,5 @@
 
-//Sridip => { sensrdt  © RCCIIT }
+//Sridip => { sensrdt  ï¿½ RCCIIT }
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -53,14 +53,14 @@ for (i = 0; i <= n; i++)
 			K[i][w] = 0; 
 		else if (wt[i-1] <= w) {
 				K[i][w] = max(val[i-1] + K[i-1][w-wt[i-1]], K[i-1][w]); 
-				cout<<"---------START------------"<<endl;
-				cout<<"i "<<i<<" w "<<w<<endl;
-				cout<<"i-1 "<<i-1<<endl;
-				cout<<"val[i-1] "<<val[i-1]<<endl;
-				cout<<"wt[i-1] "<<wt[i-1]<<endl;
-				cout<<"w-wt[i-1] "<<w-wt[i-1]<<endl;
-				cout<<"K[i-1][w-wt[i-1]] "<<K[i-1][w-wt[i-1]]<<endl;	
-				cout<<"---------------K[i][w]------------"<<K[i][w]<<endl;			
+				// cout<<"---------START------------"<<endl;
+				// cout<<"i "<<i<<" w "<<w<<endl;
+				// cout<<"i-1 "<<i-1<<endl;
+				// cout<<"val[i-1] "<<val[i-1]<<endl;
+				// cout<<"wt[i-1] "<<wt[i-1]<<endl;
+				// cout<<"w-wt[i-1] "<<w-wt[i-1]<<endl;
+				// cout<<"K[i-1][w-wt[i-1]] "<<K[i-1][w-wt[i-1]]<<endl;	
+				// cout<<"---------------K[i][w]------------"<<K[i][w]<<endl;			
 		} 
 		else
 				K[i][w] = K[i-1][w]; 
