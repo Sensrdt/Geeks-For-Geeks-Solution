@@ -50,11 +50,12 @@ void print(){
 
 int query_tree(int node, int a, int b, int i, int j) {
 	
+	// no overlap
 	if(a > b || a > j || b < i) return inf; 
-
+   // complete overlap
 	if(a >= i && b <= j) 
 		return tree[node];
-
+  // partial overlap
 	int q1 = query_tree(node*2, a, (a+b)/2, i, j); 
 	int q2 = query_tree(1+node*2, 1+(a+b)/2, b, i, j); 
 
