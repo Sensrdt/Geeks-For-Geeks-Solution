@@ -104,7 +104,7 @@ bool isPairPresent(struct node *root, int target)
         else if (v[i] + v[j] < target)
             i++;
         else
-            j--;
+            j--;    
     }
     return false;
 }
