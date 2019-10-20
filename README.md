@@ -1,5 +1,5 @@
 # Competitve-Programming
 
-## `Sridip's Solution for GeeksForGeeks with daily updates`
+## `Sridip's Solution for GeeksForGeeks problems`
 
 `Hello World << Sridip ( mahakal )`
