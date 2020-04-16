@@ -1,61 +1,80 @@
 #include<bits/stdc++.h>
-#define MAX (1+(1<<6)) 
-#define inf 0x7fffffff
+#define inf 10000
 using namespace std;
 
-int dist[1000] = {10000};
+int dis[10000] = {10000};
+/**
+  1
+  4
+  5
+  1 2 5
+  1 3 6
+  2 3 5
+  2 4 5
+  3 4 5
+  1 4
+*/
 
-void dijkstra(int from, vector<pair<int, int>> adj[]){
-    
-    priority_queue< pair<int, int>, vector< pair<int, int> >, greater< pair<int, int> > > pq;
-    pq.push(make_pair(0, from));
-    //dist[from] = 0;
-    for (int i=0; i<1000; i++) {
-        dist[i] = inf;
-    }
-    dist[from] = 0;
-   
-    while(pq.empty() == false){
-        int u = pq.top().second;
-        
-        pq.pop();
-        for (auto i : adj[u]){
-            int v = i.first;
-            int w = i.second;
-            
-            if (dist[v] > dist[u] + w){
-                dist[v] = dist[u] + w;
-                pq.push(make_pair(dist[v], v));
-               
-            }
-        }
-    }
+void dijkstra(int source, vector< pair< int, int > > graph[]){
 
-    
+  priority_queue< pair<int, int>, vector< pair<int, int> >, greater< pair<int, int> > > pq;  /**
+    (0, 1)
+    (5, 2)
+    (6, 3)
+  */
+
+  pq.push(make_pair(0, source));
+
+  for (int i=0; i<10000; i++)
+    dis[i] = inf;
+
+  dis[source] = 0;
+
+  while(pq.empty() == false){
+    int t = pq.top().second;
+
+    pq.pop();
+
+    for (auto i : graph[t]){
+      int vertex = i.first;
+      int weight = i.second;
+
+      if (dis[vertex] > dis[t] + weight){
+        dis[vertex] = dis[t] + weight;
+        pq.push(make_pair(dis[vertex], vertex));
+      }
+    }
+  }
+
 }
 
 int main()
 {
-    int t; cin>>t;
-    while(t--){
-        vector< pair<int, int>> adj[10001];
-        int v, e; cin>>v>>e;
-        int x, y, w;
-        
-        for (int i=0; i<e; i++){
-            cin>>x>>y>>w;
-            adj[x].push_back(make_pair(y, w));
-        }
+  int t; cin >> t;
 
-        int from, to;
-        cin>>from>>to;
-        dijkstra(from, adj);
-        //for (int i=0; i<v; i++) cout<<dist[i]<<" ";
-        //cout<<endl;
-        if (dist[to] < inf ){
-            cout<<dist[to]<<endl;
-        }else{
-            cout<<"NO\n";
-        }
+  while(t--)
+  {
+    int e, v;
+    cin >> v >> e;
+
+    vector< pair< int, int > > graph[10001];
+    int x, y, w;
+
+    for (int i=0; i<e; i++){
+      cin >> x >> y >> w;
+
+      graph[x].push_back(make_pair(y, w));
     }
+
+    int source, destination;
+    cin >> source >> destination;
+
+    dijkstra(source, graph);
+
+    if (dis[destination] < inf){
+      cout <<endl << dis[destination]<< "\n";
+    }else{
+      cout<<"\nNO\n";
+    }
+  }
 }
